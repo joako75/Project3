@@ -10,6 +10,7 @@ class OuterFrame{
 		TextArea displayArea = new TextArea();
 		TextField searchBar = new TextField();
 		Label titleLabel = new Label("Search Engine");
+		titleLabel.setFont(new Font("Serif", Font.BOLD, 24));
 		Label termsLabel = new Label("Search Terms:");
 		Button searchButton = new Button("Search");
 		Button aboutButton = new Button ("About");
@@ -33,7 +34,7 @@ class OuterFrame{
 		frame1.add(addButton);
 		removeButton.setBounds(380, 370, 80, 30);
 		frame1.add(removeButton);
-		titleLabel.setBounds(325, 76, 85, 15);
+		titleLabel.setBounds(300, 70, 300, 30);
 		frame1.add(titleLabel);
 		termsLabel.setBounds(150, 108, 100, 15);
 		frame1.add(termsLabel);
