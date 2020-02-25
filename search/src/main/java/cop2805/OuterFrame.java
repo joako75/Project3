@@ -17,6 +17,7 @@ Button removeButton = new Button("Remove");
 Button closeButton = new Button("Close");
 closeButton.addActionListener(e -> System.exit(0));
 
+
 //Sets position of the buttons and adds them to the frame
 searchButton.setBounds(500, 50, 80, 30);
 frame1.add(searchButton);
