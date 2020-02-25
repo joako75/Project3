@@ -1,47 +1,52 @@
 package cop2805;
 import java.awt.*;
-import javax.swing.*;
-import java.awt.event.*;
 
 //Class containing the outer frame
 class OuterFrame{
 	
-OuterFrame(){
-//Constructs the frame and 3 button objects
-Frame frame1 = new Frame( "Search Engine" );
-Button searchButton = new Button( "Search" );
-Button aboutButton = new Button ( "About" );
-Button indexButton = new Button ( "Index" );
-Button addButton = new Button("Add");
-Button removeButton = new Button("Remove");
-Button closeButton = new Button("Close");
-closeButton.addActionListener(e -> System.exit(0));
+	OuterFrame(){
+//Constructs the frame, 2 label objects, and 6 button objects
+		Frame frame1 = new Frame("Search Engine");
+		TextArea displayArea = new TextArea();
+		TextField searchBar = new TextField();
+		Label titleLabel = new Label("Search Engine");
+		Label termsLabel = new Label("Search Terms:");
+		Button searchButton = new Button("Search");
+		Button aboutButton = new Button ("About");
+		Button indexButton = new Button ("Index");
+		Button addButton = new Button("Add...");
+		Button removeButton = new Button("Remove");
+		Button closeButton = new Button("Close");
+		closeButton.addActionListener(e -> System.exit(0));
 
 
-//Sets position of the buttons and adds them to the frame
-searchButton.setBounds(500, 50, 80, 30);
-frame1.add(searchButton);
-aboutButton.setBounds(500, 425, 80, 30);
-frame1.add(aboutButton);
-indexButton.setBounds(400, 425, 80, 30);
-frame1.add(indexButton);
-closeButton.setBounds(600, 425, 80, 30);
-frame1.add(closeButton);
-addButton.setBounds(200, 350, 80, 30);
-frame1.add(addButton);
-removeButton.setBounds(300, 350, 80, 30);
-frame1.add(removeButton);
-frame1.setSize(700,500);
-frame1.setLayout(null);
-frame1.setVisible(true);
-
-
-
+//Sets positions/sizes of the buttons/labels/boxes and adds them to the frame
+		searchButton.setBounds(500, 101, 80, 30);
+		frame1.add(searchButton);
+		aboutButton.setBounds(330, 425, 80, 30);
+		frame1.add(aboutButton);
+		indexButton.setBounds(245, 425, 80, 30);
+		frame1.add(indexButton);
+		closeButton.setBounds(415, 425, 80, 30);
+		frame1.add(closeButton);
+		addButton.setBounds(280, 370, 80, 30);
+		frame1.add(addButton);
+		removeButton.setBounds(380, 370, 80, 30);
+		frame1.add(removeButton);
+		titleLabel.setBounds(325, 76, 85, 15);
+		frame1.add(titleLabel);
+		termsLabel.setBounds(150, 108, 100, 15);
+		frame1.add(termsLabel);
+		displayArea.setBounds(150, 140, 430, 225);
+		frame1.add(displayArea);
+		searchBar.setBounds(250, 105, 240, 25);
+		frame1.add(searchBar);
+		frame1.setSize(700, 500);
+		frame1.setLayout(null);
+		frame1.setVisible(true);
 }
+	public static void main( String args[] ){
+		OuterFrame frame1 = new OuterFrame();
 
+		}}
 //Need a class for the inner frame (index window)
-
-public static void main( String args[] ){
-OuterFrame frame1 = new OuterFrame();
-
-}}
