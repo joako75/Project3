@@ -1,14 +1,19 @@
 package cop2805;
 import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
 
 //Class containing the outer frame
 class OuterFrame{
+	
 OuterFrame(){
 //Constructs the frame and 3 button objects
 Frame frame1 = new Frame( "Search Engine" );
 Button searchButton = new Button( "Search" );
 Button aboutButton = new Button ( "About" );
 Button indexButton = new Button ( "Index" );
+Button addButton = new Button("Add");
+Button removeButton = new Button("Remove");
 Button closeButton = new Button("Close");
 closeButton.addActionListener(e -> System.exit(0));
 
@@ -21,9 +26,14 @@ indexButton.setBounds(400, 425, 80, 30);
 frame1.add(indexButton);
 closeButton.setBounds(600, 425, 80, 30);
 frame1.add(closeButton);
+addButton.setBounds(200, 350, 80, 30);
+frame1.add(addButton);
+removeButton.setBounds(300, 350, 80, 30);
+frame1.add(removeButton);
 frame1.setSize(700,500);
 frame1.setLayout(null);
 frame1.setVisible(true);
+
 
 
 }
@@ -32,4 +42,5 @@ frame1.setVisible(true);
 
 public static void main( String args[] ){
 OuterFrame frame1 = new OuterFrame();
+
 }}
