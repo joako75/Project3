@@ -51,11 +51,10 @@ class OuterFrame implements ActionListener {
 					 Button removeButton = new Button("Remove");
 					 Label indexLabel = new Label("Index");
 					 indexLabel.setFont(new Font("Serif", Font.BOLD, 24));
-					 
-					 //I can't get this button to work properly for frame 2
 					 Button closeButton = new Button("Close");
 					 closeButton.setBounds(350, 255, 80, 30);
-					 
+					 closeButton.addActionListener(exitFrame2 -> System.exit(0));
+
 					 frame2.add(closeButton);
 					 addButton.setBounds(70, 255, 80, 30);
 					 frame2.add(addButton);
