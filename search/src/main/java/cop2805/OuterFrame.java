@@ -53,7 +53,9 @@ class OuterFrame implements ActionListener {
 					 indexLabel.setFont(new Font("Serif", Font.BOLD, 24));
 					 Button closeButton = new Button("Close");
 					 closeButton.setBounds(350, 255, 80, 30);
-					 closeButton.addActionListener(exitFrame2 -> System.exit(0));
+					 closeButton.addActionListener(exitFrame2 -> {
+					 	frame2.dispose();
+					 });
 
 					 frame2.add(closeButton);
 					 addButton.setBounds(70, 255, 80, 30);
