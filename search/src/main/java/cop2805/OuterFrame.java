@@ -1,25 +1,20 @@
 package cop2805;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 //Class containing the frames
-class OuterFrame implements ActionListener {
-
-	OuterFrame() {
+public class OuterFrame {
 //Constructs the main frame, 2 label objects, 2 text field objects, and 4 button objects
 		Frame frame1 = new Frame("Search Engine");
 		TextArea displayArea = new TextArea();
 		TextField searchBar = new TextField();
 		Label titleLabel = new Label("Search Engine");
-		titleLabel.setFont(new Font("Serif", Font.BOLD, 24));
 		Label termsLabel = new Label("Search Terms:");
 		Button searchButton = new Button("Search");
 		Button aboutButton = new Button("About");
 		Button indexButton = new Button("Index");
 		Button closeButton = new Button("Close");
-		closeButton.addActionListener(e -> System.exit(0));
-
+public OuterFrame() {
 //Sets positions/sizes of the buttons/labels/boxes and adds them to the frame
 		searchButton.setBounds(500, 101, 80, 30);
 		frame1.add(searchButton);
@@ -29,7 +24,7 @@ class OuterFrame implements ActionListener {
 		frame1.add(indexButton);
 		closeButton.setBounds(415, 380, 80, 30);
 		frame1.add(closeButton);
-		indexButton.addActionListener(this);
+		titleLabel.setFont(new Font("Serif", Font.BOLD, 24));
 		titleLabel.setBounds(300, 70, 300, 30);
 		frame1.add(titleLabel);
 		termsLabel.setBounds(150, 108, 100, 15);
@@ -42,32 +37,46 @@ class OuterFrame implements ActionListener {
 		frame1.setLayout(null);
 		frame1.setVisible(true);
 	}
-
-	//Event handler used to open the maintenance view when the user clicks "index"
-	public void actionPerformed(ActionEvent e) {
-		{
-			Frame frame2 = new Frame("Index");
-			TextArea displayArea2 = new TextArea();
-			Button addButton = new Button("Add...");
-			Button removeButton = new Button("Remove");
-			Label indexLabel = new Label("Index");
-			indexLabel.setFont(new Font("Serif", Font.BOLD, 24));
-			Button closeButton = new Button("Close");
-			closeButton.setBounds(350, 255, 80, 30);
-			closeButton.addActionListener(exitFrame2 -> frame2.dispose());
-			frame2.add(closeButton);
-			addButton.setBounds(70, 255, 80, 30);
-			frame2.add(addButton);
-			removeButton.setBounds(170, 255, 80, 30);
-			frame2.add(removeButton);
-			displayArea2.setBounds(62, 55, 380, 195);
-			indexLabel.setBounds(230, 25, 60, 30);
-			frame2.add(indexLabel);
-			frame2.add(displayArea2);
-			frame2.setSize(500, 300);
-			frame2.setLayout(null);
-			frame2.setVisible(true);
+	//MVC-Compliant Event handling gets sent to Controller.java
+	void addCloseButtonListener(ActionListener listenForCloseButton){
+			closeButton.addActionListener(listenForCloseButton);
 		}
+	void addSearchButtonListener(ActionListener listenForSearchButton){ //Requires Handler in Controller.java
+			searchButton.addActionListener(listenForSearchButton);
+		}
+	void addAboutButtonListener(ActionListener listenForAboutButton){ //Requires Handler in Controller.java
+			aboutButton.addActionListener(listenForAboutButton);
+		}
+	void addIndexButtonListener(ActionListener listenForIndexButton){
+			indexButton.addActionListener(listenForIndexButton);
+		}
+		//getter for searchBar
+	public String getSearch(){
+		return searchBar.getText();
+	}
+	//Event handler used to open the maintenance view when the user clicks "index"
+	public static void openIndexWindow() {
+		Frame frame2 = new Frame("Index");
+		TextArea displayArea2 = new TextArea();
+		Button addButton = new Button("Add...");
+		Button removeButton = new Button("Remove");
+		Label indexLabel = new Label("Index");
+		indexLabel.setFont(new Font("Serif", Font.BOLD, 24));
+		Button closeButton = new Button("Close");
+		closeButton.setBounds(350, 255, 80, 30);
+		closeButton.addActionListener(exitFrame2 -> frame2.dispose());
+		frame2.add(closeButton);
+		addButton.setBounds(70, 255, 80, 30);
+		frame2.add(addButton);
+		removeButton.setBounds(170, 255, 80, 30);
+		frame2.add(removeButton);
+		displayArea2.setBounds(62, 55, 380, 195);
+		indexLabel.setBounds(230, 25, 60, 30);
+		frame2.add(indexLabel);
+		frame2.add(displayArea2);
+		frame2.setSize(500, 300);
+		frame2.setLayout(null);
+		frame2.setVisible(true);
 	}
 }
 
