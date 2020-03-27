@@ -13,26 +13,23 @@ public class Controller {
         this.SearchModel = SearchModel;
         this.SearchView.addIndexButtonListener(new IndexListener());
         this.SearchView.addAddButtonListener(new AddListener());
-        this.SearchView.addRemoveButtonListener(new RemoveListener());
+        this.SearchView.addRemoveButtonListener(new RemoveListener());//----
         this.SearchView.addAboutButtonListener(new AboutListener());
-        this.SearchView.addSearchButtonListener(new SearchListener());
+        this.SearchView.addSearchButtonListener(new SearchListener());//----
     }
-
     class IndexListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             SearchView.openIndexWindow();
         }
     }
-
     class AddListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            SearchModel.addFile();
+            SearchView.getFileName();
         }
     }
-
     class RemoveListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            SearchModel.removeFile();
+            //----
         }
     }
     class AboutListener implements ActionListener{
@@ -42,13 +39,12 @@ public class Controller {
                 } catch (Exception d){}
             }
         }
-
-
     class SearchListener implements ActionListener{
             public void actionPerformed(ActionEvent e){
-
+                //----
         }
     }
+
 }
 
 

@@ -13,9 +13,14 @@ public class OuterFrame {
 		Button searchButton = new Button("Search");
 		Button aboutButton = new Button("About");
 		Button indexButton = new Button("Index");
-//		Button closeButton = new Button("Close");
-		Button addButton = new Button("Add...");
-		Button removeButton = new Button("Remove");
+		//frame2 setup
+		static JFrame frame2 = new JFrame("Maintenance View");
+		static TextArea displayArea2 = new TextArea();
+		static Button addButton = new Button("Add...");
+		static Button removeButton = new Button("Remove");
+		static Button regenIndexButton = new Button("IndexRegen");
+		static Label indexLabel = new Label("Maintenance View");
+
 	public OuterFrame() {
 //Sets positions/sizes of the buttons/labels/boxes and adds them to the frame
 		searchButton.setBounds(500, 101, 80, 30);
@@ -43,7 +48,7 @@ public class OuterFrame {
 	void addSearchButtonListener(ActionListener listenForSearchButton){ //Requires Handler in Controller.java
 			searchButton.addActionListener(listenForSearchButton);
 		}
-	void addAboutButtonListener(ActionListener listenForAboutButton){ //Requires Handler in Controller.java
+	void addAboutButtonListener(ActionListener listenForAboutButton){
 			aboutButton.addActionListener(listenForAboutButton);
 		}
 	void addIndexButtonListener(ActionListener listenForIndexButton){
@@ -55,25 +60,27 @@ public class OuterFrame {
 	void addRemoveButtonListener(ActionListener listenForRemoveButton){
 			removeButton.addActionListener(listenForRemoveButton);
 	}
-	//getter for searchBar
-	public String getSearch(){
+	public String getSearch(){ //----
 		return searchBar.getText();
+	}
+	public String getFileName(){
+		JFileChooser fc = new JFileChooser();
+		if(fc.showOpenDialog(frame2)==JFileChooser.APPROVE_OPTION)
+			return fc.getSelectedFile().getName();
+		else return "";
 	}
 	//Method sent to Event handler used to open the maintenance view when the user clicks "index"
 	public static void openIndexWindow() {
-		JFrame frame2 = new JFrame("Index");
-		frame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		TextArea displayArea2 = new TextArea();
-		Button addButton = new Button("Add...");
-		Button removeButton = new Button("Remove");
-		Label indexLabel = new Label("Index");
-		indexLabel.setFont(new Font("Serif", Font.BOLD, 24));
 		addButton.setBounds(70, 255, 80, 30);
 		frame2.add(addButton);
 		removeButton.setBounds(170, 255, 80, 30);
 		frame2.add(removeButton);
+		regenIndexButton.setBounds(270,255,80,30);
+		frame2.add(regenIndexButton);
 		displayArea2.setBounds(62, 55, 380, 195);
-		indexLabel.setBounds(230, 25, 60, 30);
+		indexLabel.setBounds(140, 25, 300, 30);
+		indexLabel.setFont(new Font("Serif", Font.BOLD, 24));
+		frame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame2.add(indexLabel);
 		frame2.add(displayArea2);
 		frame2.setSize(500, 350);
