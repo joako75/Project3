@@ -1,46 +1,16 @@
 package cop2805;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import javax.persistence.*;
+import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
+@Entity @Data @NoArgsConstructor
 public class FileDoc {
-    @Id
+    @Id @GeneratedValue
     int fileID;
     String fileName;
-    boolean exists;
-    boolean modified;//Supposed to be date/time
-
-    public int getFileID() {
-        return fileID;
-    }
-
-    public void setFileID(int fileID) {
-        this.fileID = fileID;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public boolean getExists() {
-        return exists;
-    }
-
-    public void setExists(boolean exists) {
-        this.exists = exists;
-    }
-
-    public boolean getModified() {
-        return modified;
-    }
-
-    public void setModified(boolean modified) {
-        this.modified = modified;
-    }
-
+    boolean existence;
+    @Temporal(TemporalType.TIMESTAMP)
+    Date modified;
 }
+

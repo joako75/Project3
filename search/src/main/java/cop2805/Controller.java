@@ -1,8 +1,10 @@
 package cop2805;
-import java.awt.*;
+import java.awt.Desktop;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.net.*;
+import java.net.URL;
+import java.sql.Timestamp;
+import java.util.Date;
 
 public class Controller {
     private OuterFrame SearchView;
@@ -16,6 +18,7 @@ public class Controller {
         this.SearchView.addRemoveButtonListener(new RemoveListener());//----
         this.SearchView.addAboutButtonListener(new AboutListener());
         this.SearchView.addSearchButtonListener(new SearchListener());//----
+        this.SearchView.addRegenButtonListener(new RegenListener());
     }
     class IndexListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -24,12 +27,17 @@ public class Controller {
     }
     class AddListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            SearchView.getFileName();
+            String fileName = SearchView.getFileName();
+            Date date = new Date();
+            Timestamp ts = new Timestamp(date.getTime());//gets current timestamp (SAMPLE DATA)
+            SearchModel.addFile(fileName, true, ts);
+            SearchModel.getFile();
         }
     }
     class RemoveListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            //----
+            SearchModel.rmFile();
+            SearchModel.getFile();//Retrieves and prints Database to console
         }
     }
     class AboutListener implements ActionListener{
@@ -42,6 +50,11 @@ public class Controller {
     class SearchListener implements ActionListener{
             public void actionPerformed(ActionEvent e){
                 //----
+        }
+    }
+    class RegenListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            SearchModel.regenerateIndex();
         }
     }
 
