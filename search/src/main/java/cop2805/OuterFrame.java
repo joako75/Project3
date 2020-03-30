@@ -25,9 +25,9 @@ public class OuterFrame {
 	public OuterFrame() {
 		searchJButton.setBounds(500, 101, 80, 30);
 		frame1.add(searchJButton);
-		aboutJButton.setBounds(330, 380, 80, 30);
+		aboutJButton.setBounds(375, 380, 80, 30);
 		frame1.add(aboutJButton);
-		indexJButton.setBounds(245, 380, 80, 30);
+		indexJButton.setBounds(290, 380, 80, 30);
 		frame1.add(indexJButton);
 		titleLabel.setFont(new Font("Helvetica", Font.BOLD, 24));
 		titleLabel.setBounds(285, 70, 300, 30);
@@ -89,4 +89,8 @@ public class OuterFrame {
 		frame2.setLayout(null);
 		frame2.setVisible(true);
 	}
+
+public static void main(String[] args) {
+	OuterFrame frame1 = new OuterFrame();
+}
 }
