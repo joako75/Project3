@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Controller {
     /*
@@ -54,7 +55,7 @@ The arguments are set to the instantiated object and the actionListeners are add
         public void actionPerformed(ActionEvent e) {
             String fileName = SearchView.getFileName();
             Date date = new Date();
-            Timestamp ts = new Timestamp(date.getTime());//gets current timestamp (SAMPLE DATA)
+            Timestamp ts = new Timestamp(date.getTime());
             SearchModel.addFile(fileName, true, ts);
             SearchModel.getFile();
         }
@@ -64,7 +65,10 @@ The arguments are set to the instantiated object and the actionListeners are add
      */
     class RemoveListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            SearchModel.rmFile();
+            System.out.println("Enter a FileID to delete from database: ");
+            Scanner scanner = new Scanner(System.in);
+            int fileIDSelection = scanner.nextInt();
+            SearchModel.rmFile(fileIDSelection);
             SearchModel.getFile();//Retrieves and prints Database to console
         }
     }
