@@ -87,7 +87,6 @@ The arguments are set to the instantiated object and the actionListeners are add
      */
     class SearchListener implements ActionListener{
             public void actionPerformed(ActionEvent e){
-                //----
         }
     }
     /*
@@ -95,8 +94,9 @@ The arguments are set to the instantiated object and the actionListeners are add
      */
     class RegenListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            SearchModel.regenerateIndex();
+           /* SearchModel.regenerateIndex();
             SearchModel.getFile();
+            */
         }
     }
 

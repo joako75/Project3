@@ -70,14 +70,18 @@ The getFile method uses a JPQL statement to query the database
         }
     }
 /*
-The regenerateIndex method...
- */
+The regenerateIndex method needs to be able to refresh a managed object
+Currently the method generates a new object to refresh rather than refreshing an existing one
+
     public static void regenerateIndex(){
         System.out.println("Checking for updated values to entity fields");
         EntityManager em = emf.createEntityManager();
         FileDoc filedoc = new FileDoc();
+        em.merge(filedoc);
         em.refresh(filedoc);
 
     }
+
+ */
 
 }
