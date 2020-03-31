@@ -62,9 +62,11 @@ public class OuterFrame {
 	void addRegenButtonListener(ActionListener listenForRegenJButton){
 		regenIndexJButton.addActionListener(listenForRegenJButton);
 	}
+
 	public String getSearch(){ //----
 		return searchBar.getText();
 	}
+
 	public String getFileName(){
 		JFileChooser fc = new JFileChooser();
 		if(fc.showOpenDialog(frame2)==JFileChooser.APPROVE_OPTION)

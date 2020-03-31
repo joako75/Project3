@@ -1,10 +1,17 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence" version="1.0">
+    <!-- The persistence unit-->
     <persistence-unit name="DerbyDB" transaction-type="RESOURCE_LOCAL">
+        <!--Specifies the eclipseLink implementation of JPA-->
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <!--Specifies entity location-->
         <class>cop2805.FileDoc</class>
         <properties>
+            <!--JDBC driver is provided by derby.jar-->
             <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <!--With the JDBC, we can specify the database, the database name, and then create a database-->
+            <!--JPA will implement a default database schema if not specified by the entity (FileDoc) tags -->
             <property name="javax.persistence.jdbc.url" value="jdbc:derby:DerbyDB;create=true"/>
+            <!--On startup, drops and creates tables in the newly created database-->
             <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
         </properties>
     </persistence-unit>

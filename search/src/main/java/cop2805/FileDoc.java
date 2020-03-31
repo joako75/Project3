@@ -12,7 +12,6 @@ public class FileDoc {
     boolean existence;
     @Temporal(TemporalType.TIMESTAMP)
     Date modified;
-
 	public String getFileName() {
 		return fileName;
 	}
