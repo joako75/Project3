@@ -73,6 +73,10 @@ The getFile method uses a JPQL statement to query the database
 The regenerateIndex method...
  */
     public static void regenerateIndex(){
+        System.out.println("Checking for updated values to entity fields");
+        EntityManager em = emf.createEntityManager();
+        FileDoc filedoc = new FileDoc();
+        em.refresh(filedoc);
 
     }
 

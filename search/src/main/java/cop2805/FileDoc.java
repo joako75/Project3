@@ -1,17 +1,26 @@
 package cop2805;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity @Data @NoArgsConstructor
+@Entity
 public class FileDoc {
-    @Id @GeneratedValue
+    @Id @GeneratedValue @Column
     int fileID;
+    @Column
     String fileName;
-    boolean existence;
-    @Temporal(TemporalType.TIMESTAMP)
+	@Column
+	boolean existence;
+	@Column @Temporal(TemporalType.TIMESTAMP)
     Date modified;
+
+	public FileDoc(String fileName, boolean existence, Date modified) {
+	    this.fileName=fileName;
+	    this.existence = existence;
+	    this.modified=modified;
+	}
+	public FileDoc() {
+	}
+
 	public String getFileName() {
 		return fileName;
 	}
