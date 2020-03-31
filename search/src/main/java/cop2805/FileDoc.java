@@ -12,5 +12,24 @@ public class FileDoc {
     boolean existence;
     @Temporal(TemporalType.TIMESTAMP)
     Date modified;
+
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public boolean isExistence() {
+		return existence;
+	}
+	public void setExistence(boolean existence) {
+		this.existence = existence;
+	}
+	public Date getModified() {
+		return modified;
+	}
+	public void setModified(Date modified) {
+		this.modified = modified;
+	}
 }
 

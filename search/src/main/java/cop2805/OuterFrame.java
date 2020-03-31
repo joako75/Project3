@@ -89,8 +89,4 @@ public class OuterFrame {
 		frame2.setLayout(null);
 		frame2.setVisible(true);
 	}
-
-public static void main(String[] args) {
-	OuterFrame frame1 = new OuterFrame();
-}
 }
