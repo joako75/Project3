@@ -20,7 +20,7 @@ public class FileDoc {
 	}
 	public FileDoc() {
 	}
-
+	public int getFileID(){return fileID;}
 	public String getFileName() {
 		return fileName;
 	}
