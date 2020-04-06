@@ -13,10 +13,10 @@ public class OuterFrame {
 		JButton searchJButton = new JButton("Search");
 		JButton aboutJButton = new JButton("About");
 		JButton indexJButton = new JButton("Index");
+		static JScrollPane scrollPane = new JScrollPane();
+		static DBModel dbmodel = new DBModel();
 		static JFrame frame2 = new JFrame("Maintenance View");
-	static String[] columnNames = {"ID", "Name","Existence","Modified"};// SAMPLE DATA
-	static Object[][] data = {{"01", "C:/Java/Test.txt", "True", "12:00"},{"02", "C:/Java/Test.txt", "True", "12:01"}};
-		static JTable displayArea2 = new JTable(data,columnNames);
+		static JTable DBTable = new JTable();
 		static JButton addJButton = new JButton("Add...");
 		static JButton removeJButton = new JButton("Remove");
 		static JButton regenIndexJButton = new JButton("Regen...");
@@ -75,18 +75,23 @@ public class OuterFrame {
 	}
 	//Method sent to Event handler used to open the maintenance view when the user clicks "index"
 	public static void openIndexWindow() {
+		DBTable.setModel(dbmodel);
+		scrollPane.setViewportView(DBTable);
 		addJButton.setBounds(70, 255, 80, 30);
 		frame2.add(addJButton);
+		scrollPane.setPreferredSize(new Dimension(200, 100));
 		removeJButton.setBounds(170, 255, 80, 30);
 		frame2.add(removeJButton);
 		regenIndexJButton.setBounds(270,255,80,30);
 		frame2.add(regenIndexJButton);
-		displayArea2.setBounds(62, 55, 380, 195);
+		scrollPane.setBounds(62, 55, 380, 195);
 		indexLabel.setBounds(140, 25, 300, 30);
 		indexLabel.setFont(new Font("Helvetica", Font.BOLD, 24));
 		frame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame2.add(indexLabel);
-		frame2.add(displayArea2);
+		DBTable.setShowVerticalLines(true);
+		DBTable.setShowHorizontalLines(true);
+        frame2.add(scrollPane,BorderLayout.CENTER);
 		frame2.setSize(500, 350);
 		frame2.setLayout(null);
 		frame2.setVisible(true);
