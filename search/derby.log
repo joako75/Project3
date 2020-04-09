@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Thu Apr 09 00:00:43 EDT 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0171-5d18-e0ca-000008c3fa98 
-on database directory C:\Users\Anthony\eclipse-workspace\SearchEngineGUI\Project3\search\DerbyDB with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
-Loaded from file:/C:/Java/db-derby-10.14.2.0-bin/lib/derby.jar
+Thu Apr 09 00:39:27 EDT 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0171-5d3c-57a2-00000f1cb800 
+on database directory A:\maven.1586406626755\search\DerbyDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@4e0e2f2a 
+Loaded from file:/C:/Users/joaq_/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_231-b11
-user.dir=C:\Users\Anthony\eclipse-workspace\SearchEngineGUI\Project3\search
-os.name=Windows 7
+java.runtime.version=13+33
+user.dir=A:\maven.1586406626755\search
+os.name=Windows 10
 os.arch=amd64
-os.version=6.1
+os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

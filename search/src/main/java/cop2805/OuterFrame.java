@@ -41,6 +41,7 @@ public class OuterFrame {
 		frame1.setSize(600, 480);
 		frame1.setLayout(null);
 		frame1.setVisible(true);
+		frame1.setLocationRelativeTo(null);
 		frame1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 	//MVC-Compliant Event handling gets sent to Controller.java
@@ -95,5 +96,6 @@ public class OuterFrame {
 		frame2.setSize(500, 350);
 		frame2.setLayout(null);
 		frame2.setVisible(true);
+		frame2.setLocationRelativeTo(null);
 	}
 }
