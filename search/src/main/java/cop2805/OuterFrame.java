@@ -23,22 +23,22 @@ public class OuterFrame {
 		static JLabel indexLabel = new JLabel("Maintenance View");
 
 	public OuterFrame() {
-		searchJButton.setBounds(500, 101, 80, 30);
+		searchJButton.setBounds(450, 101, 80, 30);
 		frame1.add(searchJButton);
-		aboutJButton.setBounds(375, 380, 80, 30);
+		aboutJButton.setBounds(305, 380, 80, 30);
 		frame1.add(aboutJButton);
-		indexJButton.setBounds(290, 380, 80, 30);
+		indexJButton.setBounds(215, 380, 80, 30);
 		frame1.add(indexJButton);
 		titleLabel.setFont(new Font("Helvetica", Font.BOLD, 24));
-		titleLabel.setBounds(285, 70, 300, 30);
+		titleLabel.setBounds(215, 70, 300, 30);
 		frame1.add(titleLabel);
-		termsLabel.setBounds(150, 108, 100, 15);
+		termsLabel.setBounds(80, 108, 100, 15);
 		frame1.add(termsLabel);
-		displayArea.setBounds(150, 140, 430, 225);
+		displayArea.setBounds(80, 140, 430, 225);
 		frame1.add(displayArea);
-		searchBar.setBounds(250, 105, 240, 25);
+		searchBar.setBounds(180, 103, 240, 25);
 		frame1.add(searchBar);
-		frame1.setSize(700, 480);
+		frame1.setSize(600, 480);
 		frame1.setLayout(null);
 		frame1.setVisible(true);
 		frame1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
