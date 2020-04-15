@@ -8,10 +8,11 @@ public class Model {
     public static void addFile(String fileName, boolean existence, Date modified) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction et = null;
+        FileDoc Document = new FileDoc(fileName, existence, modified);
+        OuterFrame.dbmodel.addRow(Document);
         try {
             et = em.getTransaction();
             et.begin();
-            FileDoc Document = new FileDoc(fileName, existence, modified);
             em.persist(Document);
             et.commit();
         } catch (Exception L) {
@@ -21,21 +22,7 @@ public class Model {
             em.close();
         }
     }
-    public static List<FileDoc> getFile() {
-        List<FileDoc> results;
-        System.out.println("New query on database...");
-        EntityManager em = emf.createEntityManager();
-        TypedQuery<FileDoc> query = em.createQuery("SELECT x FROM FileDoc x", FileDoc.class);
-        results = query.getResultList();
-        for (FileDoc filedoc : results) {
-            System.out.print("FileID: " + filedoc.getFileID());
-            System.out.print(" | File Name: " + filedoc.getFileName());
-            System.out.print(" | File existence: " + filedoc.isExistence());
-            System.out.println(" | File modified: " + filedoc.getModified());
-        }
-        System.out.println("End of results.\n");
-        return results;
-    }
+
     public static void rmFile(int fileID) {
         System.out.println("Removing fileID: " + fileID);
         EntityManager em = emf.createEntityManager();
@@ -52,16 +39,13 @@ public class Model {
             L.printStackTrace();
         }
     }
-/*
-The regenerateIndex method needs to be able to refresh a managed object
-Currently the method generates a new object to refresh rather than refreshing an existing one
 
-    public static void regenerateIndex(){
-        System.out.println("Checking for updated values to entity fields");
+    public static List<FileDoc> getFile() {
         EntityManager em = emf.createEntityManager();
-        FileDoc filedoc = new FileDoc();
-        em.merge(filedoc);
-        em.refresh(filedoc);
+        TypedQuery<FileDoc> query = em.createQuery("SELECT x FROM FileDoc x", FileDoc.class);
+        List<FileDoc> results = query.getResultList();
+        return results;
     }
- */
+
+
 }

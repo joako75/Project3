@@ -4,9 +4,9 @@ import java.util.Date;
 
 @Entity
 public class FileDoc {
-    @Id @GeneratedValue @Column
+    @Id @GeneratedValue @Column(unique=true)
     int fileID;
-    @Column
+    @Column(unique=true)
     String fileName;
 	@Column
 	boolean existence;
@@ -21,6 +21,7 @@ public class FileDoc {
 	public FileDoc() {
 	}
 	public int getFileID(){return fileID;}
+	public void setFileID(int fileID){this.fileID=fileID;}
 	public String getFileName() {
 		return fileName;
 	}

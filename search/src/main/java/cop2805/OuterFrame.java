@@ -2,7 +2,7 @@ package cop2805;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-//Class containing the frames
+
 public class OuterFrame {
 //Constructs the both frames, 2 label objects, 2 text field objects, and 4 button objects
 		JFrame frame1 = new JFrame("Search Engine");
