@@ -45,7 +45,10 @@ public class DBModel extends AbstractTableModel {
     public void addRow(FileDoc filedoc) {
         results.add(filedoc);
         fireTableRowsInserted(results.size() - 1, results.size() - 1);
-        fireTableDataChanged();
+    }
+    public void rmRow(int row){
+        results.remove(row);
+        fireTableRowsDeleted(row,row);
     }
 }
 

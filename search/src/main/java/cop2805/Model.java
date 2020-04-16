@@ -24,7 +24,6 @@ public class Model {
     }
 
     public static void rmFile(int fileID) {
-        System.out.println("Removing fileID: " + fileID);
         EntityManager em = emf.createEntityManager();
         EntityTransaction et = null;
         FileDoc fileToDel;
@@ -46,6 +45,4 @@ public class Model {
         List<FileDoc> results = query.getResultList();
         return results;
     }
-
-
 }

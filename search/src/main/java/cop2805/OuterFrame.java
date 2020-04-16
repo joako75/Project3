@@ -92,6 +92,7 @@ public class OuterFrame {
 		frame2.add(indexLabel);
 		DBTable.setShowVerticalLines(true);
 		DBTable.setShowHorizontalLines(true);
+		DBTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         frame2.add(scrollPane,BorderLayout.CENTER);
 		frame2.setSize(500, 350);
 		frame2.setLayout(null);

@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.Scanner;
 
 public class Controller {
     private OuterFrame SearchView;
@@ -36,11 +35,10 @@ public class Controller {
     }
     class RemoveListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            System.out.println("Enter a FileID to delete from database: ");
-            Scanner scanner = new Scanner(System.in);
-            int fileIDSelection = scanner.nextInt();
-            SearchModel.rmFile(fileIDSelection);
-            SearchModel.getFile();
+            int row = SearchView.DBTable.getSelectedRow();
+            String fileID = SearchView.DBTable.getValueAt(row,0).toString();
+            Model.rmFile(Integer.parseInt(fileID));
+            OuterFrame.dbmodel.rmRow(row);
         }
     }
     class AboutListener implements ActionListener{
