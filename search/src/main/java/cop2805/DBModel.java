@@ -1,5 +1,6 @@
 package cop2805;
 import javax.swing.table.AbstractTableModel;
+import java.io.File;
 import java.util.*;
 
 public class DBModel extends AbstractTableModel {
@@ -49,6 +50,17 @@ public class DBModel extends AbstractTableModel {
     public void rmRow(int row){
         results.remove(row);
         fireTableRowsDeleted(row,row);
+    }
+    public void regen(){
+        for(int i = 0; i < results.size();i++) {
+            FileDoc tempFileDoc = results.get(i);
+            String filepath = tempFileDoc.getFileName();
+            File tempFile = new File(filepath);
+            boolean exists = tempFile.exists();
+            tempFileDoc.setExistence(exists);
+
+        }
+        fireTableDataChanged();
     }
 }
 

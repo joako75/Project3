@@ -54,6 +54,7 @@ public class Controller {
     }
     class RegenListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
+            OuterFrame.dbmodel.regen();
         }
     }
 }
