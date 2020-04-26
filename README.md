@@ -1,7 +1,4 @@
-# Search Engine
-## [Project5](http://wpollock.com/AJava/Proj-B-SearchEngine-Collections.htm)
-
-**TechStack**
+# [Search Engine](http://wpollock.com/AJava/Proj-B-SearchEngine-Collections.htm)
 
 
 <details>
