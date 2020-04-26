@@ -1,5 +1,6 @@
 # [Search Engine](http://wpollock.com/AJava/Proj-B-SearchEngine-Collections.htm)
 
+![Search Engine Screenshot](/readme/Project5.png)
 
 <details>
 <summary>Technology Stack</summary>
@@ -12,8 +13,3 @@
 <li>FlatLAF</li>
 </ul>
 </details>
-
-
-
-
-![Search Engine Screenshot](/readme/Project5.png)
