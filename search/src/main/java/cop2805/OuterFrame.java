@@ -2,14 +2,19 @@ package cop2805;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class OuterFrame {
 //Constructs the both frames, 2 label objects, 2 text field objects, and 4 button objects
 		JFrame frame1 = new JFrame("Search Engine");
 		JTextArea displayArea = new JTextArea();
-		JTextField searchBar = new JTextField();
+		static JTextField searchBar = new JTextField();
 		JLabel titleLabel = new JLabel("Search Engine");
 		JLabel termsLabel = new JLabel("Search Terms:");
+	  	ButtonGroup searchType = new ButtonGroup();
+		JRadioButton andBtn = new JRadioButton("AND");
+		JRadioButton orBtn = new JRadioButton("OR");
+		JRadioButton phraseBtn= new JRadioButton("PHRASE");
 		JButton searchJButton = new JButton("Search");
 		JButton aboutJButton = new JButton("About");
 		JButton indexJButton = new JButton("Index");
@@ -23,21 +28,30 @@ public class OuterFrame {
 		static JLabel indexLabel = new JLabel("Maintenance View");
 
 	public OuterFrame() {
-		searchJButton.setBounds(450, 101, 80, 30);
+		searchJButton.setBounds(425, 84, 80, 30);
 		frame1.add(searchJButton);
 		aboutJButton.setBounds(305, 380, 80, 30);
 		frame1.add(aboutJButton);
 		indexJButton.setBounds(215, 380, 80, 30);
 		frame1.add(indexJButton);
 		titleLabel.setFont(new Font("Helvetica", Font.BOLD, 24));
-		titleLabel.setBounds(215, 70, 300, 30);
+		titleLabel.setBounds(215, 40, 300, 30);
 		frame1.add(titleLabel);
-		termsLabel.setBounds(80, 108, 100, 15);
+		termsLabel.setBounds(80, 92, 100, 15);
 		frame1.add(termsLabel);
 		displayArea.setBounds(80, 140, 430, 225);
 		frame1.add(displayArea);
-		searchBar.setBounds(180, 103, 240, 25);
+		searchBar.setBounds(180, 87, 240, 25);
 		frame1.add(searchBar);
+		searchType.add(andBtn);
+		searchType.add(orBtn);
+		searchType.add(phraseBtn);
+		frame1.add(andBtn,BorderLayout.NORTH);
+		andBtn.setBounds(180, 115, 240, 25);
+		frame1.add(orBtn);
+		orBtn.setBounds(272, 115, 240, 25);
+		frame1.add(phraseBtn);
+		phraseBtn.setBounds(352, 115, 240, 25);
 		frame1.setSize(600, 480);
 		frame1.setLayout(null);
 		frame1.setVisible(true);
@@ -47,6 +61,9 @@ public class OuterFrame {
 	//MVC-Compliant Event handling gets sent to Controller.java
 	void addSearchButtonListener(ActionListener listenForSearchJButton){ //Requires Handler in Controller.java
 			searchJButton.addActionListener(listenForSearchJButton);
+		}
+	void addSearchBarListener(ActionListener listenForSearchBar){
+			searchBar.addActionListener(listenForSearchBar);
 		}
 	void addAboutButtonListener(ActionListener listenForAboutJButton){
 			aboutJButton.addActionListener(listenForAboutJButton);
@@ -64,12 +81,14 @@ public class OuterFrame {
 		regenIndexJButton.addActionListener(listenForRegenJButton);
 	}
 
-	public String getSearch(){ //----
+	public static String getSearch(){ //----
 		return searchBar.getText();
 	}
 
 	public String getFileName(){
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files", "txt");
 		JFileChooser fc = new JFileChooser();
+		fc.setFileFilter(filter);
 		if(fc.showOpenDialog(frame2)==JFileChooser.APPROVE_OPTION)
 			return fc.getSelectedFile().getAbsolutePath();
 		else return "";
@@ -77,6 +96,8 @@ public class OuterFrame {
 	//Method sent to Event handler used to open the maintenance view when the user clicks "index"
 	public static void openIndexWindow() {
 		DBTable.setModel(dbmodel);
+		DBTable.getColumnModel().removeColumn((DBTable.getColumn(dbmodel.getColumnName(0))));
+		DBTable.getColumnModel().removeColumn((DBTable.getColumn(dbmodel.getColumnName(2))));
 		scrollPane.setViewportView(DBTable);
 		addJButton.setBounds(70, 255, 80, 30);
 		frame2.add(addJButton);

@@ -58,7 +58,8 @@ public class DBModel extends AbstractTableModel {
             File tempFile = new File(filepath);
             boolean exists = tempFile.exists();
             tempFileDoc.setExistence(exists);
-
+            if(exists==false)
+                rmRow(i);
         }
         fireTableDataChanged();
     }

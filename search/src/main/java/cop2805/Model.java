@@ -2,7 +2,7 @@ package cop2805;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-
+import java.io.File;
 public class Model {
     static EntityManagerFactory emf = Persistence.createEntityManagerFactory("DerbyDB");
     public static void addFile(String fileName, boolean existence, Date modified) {
@@ -46,3 +46,5 @@ public class Model {
         return results;
     }
 }
+
+
