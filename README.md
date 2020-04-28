@@ -1,9 +1,10 @@
-# [Search Engine](http://wpollock.com/AJava/Proj-B-SearchEngine-Collections.htm)
+# Search Engine
+### [Part I](http://wpollock.com/AJava/Proj-B-SearchEngine-Design.htm) | [Part II](http://wpollock.com/AJava/Proj-B-SearchEngine-Files.htm) | [Part III](http://wpollock.com/AJava/Proj-B-SearchEngine-Collections.htm)
 
-![Search Engine Screenshot](/readme/Project5.png)
+<img align="right" width="582" height="469" src="/readme/Project5.png">
 
-<details>
-<summary>Technology Stack</summary>
+<strong>Technology Stack</strong>
+
 <ul>
 <li>Java Swing</li>
 <li>EclipseLink JPA</li>
@@ -12,4 +13,4 @@
 <li>Apache Maven</li>
 <li>FlatLAF</li>
 </ul>
-</details>
+
