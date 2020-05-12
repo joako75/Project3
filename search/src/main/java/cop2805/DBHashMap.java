@@ -1,5 +1,12 @@
-/*
-Placeholder/example for hashmap, gathered from 
+/*SEARCH ENGINE PROJECTS 3-5
+ *GROUP MEMBERS:
+ *Eddie Talavera
+ *Joaquian Rojas Chang
+ *Anthony Brown
+ *
+ *COP-2805C-36113 Java Advanced*/
+
+/*Placeholder/example for hashmap, gathered from 
 https://www.geeksforgeeks.org/map-interface-java-examples/ and edited to better fit the project.
 
 More method information available at
