@@ -42,7 +42,7 @@ class DBHashMap
    //Copies all of the mappings from the specified map to this map.
    public void putAll(Map map) {
 	   
-	   return 0;
+	   return;
    }
    
    //Removes mapping for specified key, would be used for the "Remove" button I believe.

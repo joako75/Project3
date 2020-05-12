@@ -27,6 +27,7 @@ public class OuterFrame {
 		static JButton regenIndexJButton = new JButton("Regen...");
 		static JLabel indexLabel = new JLabel("Maintenance View");
 
+	//And/or/phrase radioButtons clickable area is offset from actual circle, not sure why
 	public OuterFrame() {
 		searchJButton.setBounds(425, 84, 80, 30);
 		frame1.add(searchJButton);
@@ -96,8 +97,6 @@ public class OuterFrame {
 	//Method sent to Event handler used to open the maintenance view when the user clicks "index"
 	public static void openIndexWindow() {
 		DBTable.setModel(dbmodel);
-		DBTable.getColumnModel().removeColumn((DBTable.getColumn(dbmodel.getColumnName(0))));
-		DBTable.getColumnModel().removeColumn((DBTable.getColumn(dbmodel.getColumnName(2))));
 		scrollPane.setViewportView(DBTable);
 		addJButton.setBounds(70, 255, 80, 30);
 		frame2.add(addJButton);
